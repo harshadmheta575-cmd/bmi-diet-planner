@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* PAGE */
+.team-page {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #f6fff9, #e8f5e9);
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+/* HEADER */
+.team-header {
+    padding: 70px 20px 40px;
+}
+
+.team-header h1 {
+    font-size: 42px;
+    color: #1b5e20;
+}
+
+.team-header p {
+    margin-top: 8px;
+    color: #4f6f52;
+}
+
+/* GRID */
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+/* CARD */
+.team-card {
+    width: 230px;
+    padding: 30px 20px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(12px);
+    cursor: pointer;
+    transition: 0.45s;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.team-card:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.18);
+}
+
+/* IMAGE */
+.team-card img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    box-shadow: 0 0 20px rgba(46,125,50,0.5);
+}
+
+/* TEXT */
+.team-card h3 {
+    font-size: 16px;
+    color: #1b5e20;
+}
+
+.team-card span {
+    font-size: 13px;
+    color: #4f6f52;
+}
+
+/* POPUP */
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup.active {
+    display: flex;
+}
+
+.popup-box {
+    width: 360px;
+    background: linear-gradient(145deg, #ffffff, #e8f5e9);
+    border-radius: 26px;
+    padding: 30px;
+    text-align: center;
+    animation: pop 0.35s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.popup-box img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(46,125,50,0.5);
+    margin-bottom: 12px;
+}
+
+.close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 24px;
+    cursor: pointer;
+}

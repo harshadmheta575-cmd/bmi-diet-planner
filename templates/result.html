@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Diet Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- TOP KPI SECTION -->
+    <div class="kpi-row">
+
+        <div class="glass kpi-card">
+            <div class="circle">
+                <span>{{ bmi }}</span>
+            </div>
+            <p>BMI</p>
+        </div>
+
+        <div class="glass kpi-card">
+            <div class="circle green">
+                <span>{{ nutrition.calories }}</span>
+            </div>
+            <p>Calories</p>
+        </div>
+
+        <div class="glass kpi-card">
+            <div class="circle orange">
+                <span>{{ nutrition.protein }}</span>
+            </div>
+            <p>Protein</p>
+        </div>
+
+        <div class="glass kpi-card">
+            <div class="category-pill">
+                {{ category }}
+            </div>
+            <p>Category</p>
+        </div>
+
+    </div>
+
+    <!-- NUTRITION BARS -->
+    <div class="glass section animate">
+        <h3>Daily Nutrition</h3>
+
+        {% for key, value in nutrition.items() %}
+        <div class="bar-row">
+            <span>{{ key|capitalize }}</span>
+            <div class="bar">
+                <div class="bar-fill"></div>
+            </div>
+            <small>{{ value }}</small>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- HEALTH ADVICE -->
+    <div class="glass section animate">
+        <h3>Health Advice</h3>
+        <p>{{ advice }}</p>
+    </div>
+
+    <!-- PROTEIN SOURCES -->
+    <div class="glass section animate">
+        <h3>Protein Sources</h3>
+        <div class="pill-list">
+            {% for item in protein_sources %}
+            <span class="pill">{{ item }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- WEEKLY PLAN -->
+    <div class="glass section animate">
+        <h3>Weekly Diet Plan</h3>
+        <div class="week-grid">
+            {% for day, meals in weekly_diet.items() %}
+            <div class="day-card">
+                <h4>{{ day }}</h4>
+                {% for meal, food in meals.items() %}
+                <p><strong>{{ meal }}:</strong> {{ food }}</p>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <a href="/" class="back-link">← Go Back</a>
+
+</div>
+
+</body>
+</html>

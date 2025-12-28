@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Team</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='team.css') }}">
+</head>
+
+<body class="team-page">
+
+<!-- HEADER -->
+<header class="team-header">
+    <h1>Meet Our Team</h1>
+    <p>The people behind the BMI Based Diet Planner</p>
+</header>
+
+<!-- TEAM GRID -->
+<section class="team-container">
+
+    <div class="team-card" onclick="openPopup(
+        'Atharav Khamkar','Roll No. 15 | Div C','1251100048','atharav.1251100048@vit.edu','atharav.jpg'
+    )">
+        <img src="{{ url_for('static', filename='images/atharav.jpg') }}">
+        <h3>Atharav Khamkar</h3>
+        <span>Team Member</span>
+    </div>
+
+    <div class="team-card" onclick="openPopup(
+        'Aryan','Roll No. 13','1251100486','aryan.1251100485@vit.edu','aryan.jpg'
+    )">
+        <img src="{{ url_for('static', filename='images/aryan.jpg') }}">
+        <h3>Aryan</h3>
+        <span>Team Member</span>
+    </div>
+
+    <div class="team-card" onclick="openPopup(
+        'Rajratna Kharat','Roll No. 17','1251100011','rajratna.1251100011@vit.edu','rajratna.jpg'
+    )">
+        <img src="{{ url_for('static', filename='images/rajratna.jpg') }}">
+        <h3>Rajratna Kharat</h3>
+        <span>Team Member</span>
+    </div>
+
+    <div class="team-card" onclick="openPopup(
+        'Riddhi Khandare','Roll No. 16','1251100360','riddhi.1251100360@vit.edu','riddhi.jpg'
+    )">
+        <img src="{{ url_for('static', filename='images/riddhi.jpg') }}">
+        <h3>Riddhi Khandare</h3>
+        <span>Team Member</span>
+    </div>
+
+    <div class="team-card" onclick="openPopup(
+        'Ranveer Kendre','Roll No. 14','1251100250','ranveer.1251100314@vit.edu','ranveer.jpg'
+    )">
+        <img src="{{ url_for('static', filename='images/ranveer.jpg') }}">
+        <h3>Ranveer Kendre</h3>
+        <span>Team Member</span>
+    </div>
+
+</section>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+    <div class="popup-box">
+        <span class="close" onclick="closePopup()">×</span>
+
+        <img id="p-img">
+        <h2 id="p-name"></h2>
+        <p class="role" id="p-role"></p>
+
+        <div class="info">
+            <p><b>PRN:</b> <span id="p-prn"></span></p>
+            <p><b>Email:</b> <span id="p-email"></span></p>
+        </div>
+    </div>
+</div>
+
+<script>
+function openPopup(name, role, prn, email, img) {
+    document.getElementById("p-name").innerText = name;
+    document.getElementById("p-role").innerText = role;
+    document.getElementById("p-prn").innerText = prn;
+    document.getElementById("p-email").innerText = email;
+    document.getElementById("p-img").src = "/static/images/" + img;
+    document.getElementById("popup").classList.add("active");
+}
+
+function closePopup() {
+    document.getElementById("popup").classList.remove("active");
+}
+</script>
+
+</body>
+</html>

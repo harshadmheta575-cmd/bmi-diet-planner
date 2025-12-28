@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Diet Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="home-bg">
+
+<!-- 🔹 TOP NAV -->
+<nav class="top-nav glass-nav">
+    <a href="/team">Team</a>
+    <a href="#" onclick="openAbout()">About</a>
+</nav>
+
+<!-- 🔹 MAIN CONTENT -->
+<div class="page-wrapper">
+
+    <div class="container glass">
+        <h1>BMI Based Diet Planner</h1>
+
+        <form action="/result" method="post">
+            <label>Height (in cm)</label>
+            <input type="number" name="height" required>
+
+            <label>Weight (in kg)</label>
+            <input type="number" name="weight" required>
+
+            <label>Food Preference</label>
+            <select name="food" required>
+                <option value="veg">Vegetarian</option>
+                <option value="nonveg">Non-Vegetarian</option>
+            </select>
+
+            <button type="submit" class="pulse-btn">Calculate BMI</button>
+        </form>
+    </div>
+
+</div>
+
+<!-- 🔹 ABOUT POPUP -->
+<div class="about-popup" id="aboutPopup">
+    <div class="about-box glass">
+        <span class="close-btn" onclick="closeAbout()">×</span>
+        <h2>About This Project</h2>
+        <p>
+            This BMI Based Diet Planner is a health-focused web application that
+            calculates Body Mass Index and generates personalized weekly diet plans
+            based on BMI category and food preference (Veg / Non-Veg).
+        </p>
+        <p>
+            It helps users understand daily nutrition requirements, protein intake,
+            and healthy lifestyle recommendations in a simple and interactive way.
+        </p>
+        <p class="about-footer">
+            Final Year Project • Health & Nutrition • Flask Web App
+        </p>
+    </div>
+</div>
+
+<script>
+function openAbout() {
+    document.getElementById("aboutPopup").classList.add("active");
+}
+function closeAbout() {
+    document.getElementById("aboutPopup").classList.remove("active");
+}
+</script>
+
+</body>
+</html>
+
